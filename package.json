@@ -1,0 +1,27 @@
+{
+  "name": "midu",
+  "version": "0.1.0",
+  "description": "Midu (/mɪdʊ/) - Full-stack Javascript with Microservices, VueJS, MongoDB, TypeScript",
+  "main": "dist/services",
+  "repository": "git@github.com:ltv/midu.git",
+  "author": "Luc <luc@ltv.vn>, Anh <lehoanganh25991@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node -r ts-node/register node_modules/moleculer/bin/moleculer-runner --repl --hot src/services --mask **/*.service.ts",
+    "start": "moleculer-runner"
+  },
+  "dependencies": {
+    "jest": "^23.4.1",
+    "moleculer": "^0.13.1",
+    "moleculer-decorators": "^1.0.14",
+    "moleculer-web": "^0.8.0",
+    "ts-jest": "^23.0.1"
+  },
+  "devDependencies": {
+    "moleculer-repl": "^0.5.0",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
+  }
+}
