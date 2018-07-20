@@ -1,9 +1,8 @@
 # midu
-Midu (/mɪdʊ/) - Full-stack Javascript with Microservices,  VueJS, MongoDB, TypeScript
 
+Midu (/mɪdʊ/) - Full-stack Javascript with Microservices, VueJS, MongoDB, TypeScript
 
-Table of Contents
------------------
+## Table of Contents
 
 - [midu](#midu)
   - [Table of Contents](#table-of-contents)
@@ -20,48 +19,59 @@ Table of Contents
   - [Contributing](#contributing)
   - [License](#license)
 
-Features
---------
+## Features
 
+**Server**
 
-Prerequisites
---------
+- [ ] Node.JS v8.x.x
+- [ ] Moleculer - Microservices
+- [ ] MongoDB with Mongoose
+- [ ] NodeMailer with SMTP, MailGun or SendGrid
+- [ ] Joy-validator
+- [ ] i18next as the internationalization ecosystem
+- [ ] TypeScript
 
+**Client**
 
-Getting Started
---------
+- [ ] VueJS 2.x
+- [ ] Vuex
+- [ ] Vue-Router
+- [ ] Webpack 4
+- [ ] SCSS
+- [ ] PostCSS
+- [ ] TypeScript
+- [ ] PasswordLess
+- [ ] PassportJS
+  - Social signup/login with Facebook, Google, Twitter and Github
+  - API key authentication for REST API calls
 
+**Supported remote logging services**
 
-Project Structure
---------
+- [ ] [Papertrail](https://papertrailapp.com/)
+- [ ] [Graylog](https://www.graylog.org/)
+- [ ] [LogEntries](https://logentries.com/)
+- [ ] [Loggly](https://www.loggly.com/)
+- [ ] [Logsene](https://sematext.com/logsene/)
+- [ ] [Logz.io](http://logz.io/)
 
+## Prerequisites
 
-List of Packages
---------
+## Getting Started
 
+## Project Structure
 
-Useful Tools and Resources
---------
+## List of Packages
 
-How It Works
---------
+## Useful Tools and Resources
 
+## How It Works
 
-Deployment
---------
+## Deployment
 
+## Docker
 
-Docker
---------
+## Changelog
 
+## Contributing
 
-Changelog
---------
-
-
-Contributing
---------
-
-
-License
---------
+## License
