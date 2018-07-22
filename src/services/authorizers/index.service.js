@@ -1,5 +1,10 @@
+const DbService = require('moleculer-db');
+const MongooseAdapter = require('moleculer-db-adapter-mongoose');
+const mongoose = require('mongoose');
+
 const { genHash, compareHash } = require('./helpers');
 const { signToken, verifyToken } = require('./token');
+const { Post } = require('./models');
 
 // Mock USER
 const User = {
@@ -18,8 +23,17 @@ const ERROR_CODE_CANT_FIND_USER = 2;
 const GENERATE_TOKEN = 'GENERATE_TOKEN';
 const RESET = 'RESET';
 
+const { MONGO_DB_URL = 'mongodb://localhost/midu' } = process.env;
+
 module.exports = {
   name: 'authorizers',
+
+  /**
+   * Mixins
+   */
+  mixins: [DbService],
+  adapter: new MongooseAdapter(MONGO_DB_URL),
+  model: Post,
 
   /**
    * Service settings
@@ -69,6 +83,7 @@ module.exports = {
     resetPassword: {
       params: {
         email: 'string',
+        token: { type: 'string', optional: true },
         password: { type: 'string', optional: true },
         action: 'string'
       },
@@ -78,7 +93,8 @@ module.exports = {
         if (action === GENERATE_TOKEN) return await signToken({ email });
 
         if (action === RESET) {
-          const { password } = params;
+          const { password, token } = params;
+          const { email } = await verifyToken(token);
           const user = await User.findOne({ email });
           return user
             ? user.update({
