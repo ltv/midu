@@ -1,5 +1,13 @@
 const { genHash, compareHash } = require('./helpers');
-const User = {};
+const User = {
+  // findOne: () => Promise.resolve(null),
+  findOne: () =>
+    Promise.resolve({
+      email: 'test@example.com',
+      passwordHash: '$2a$10$RGVlrbI6C7UKcwfelt4PTuDMg.Sd4MGor4trmxkP7FIOSAWqgXXM6'
+    }),
+  save: info => Promise.resolve(info)
+};
 
 const ERROR_CODE_USER_EXIST = 1;
 const ERROR_CODE_CANT_FIND_USER = 2;
@@ -29,7 +37,7 @@ module.exports = {
       handler: async ({ params }) => {
         const { email, password } = params;
         const user = await User.findOne({ email });
-        return user
+        return !user
           ? User.save({
             email,
             passwordHash: await genHash(password)
