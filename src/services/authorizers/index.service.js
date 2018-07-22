@@ -1,4 +1,8 @@
-'use strict';
+const { genHash, compareHash } = require('./helpers');
+const User = {};
+
+const ERROR_CODE_USER_EXIST = 1;
+const ERROR_CODE_CANT_FIND_USER = 2;
 
 module.exports = {
   name: 'authorizers',
@@ -17,27 +21,34 @@ module.exports = {
    * Actions
    */
   actions: {
-    /**
-     * Say a 'Hello'
-     *
-     * @returns
-     */
-    hello() {
-      return 'Hello Moleculer';
+    signUpWithEmailPassword: {
+      params: {
+        email: 'string',
+        password: 'string'
+      },
+      handler: async ctx => {
+        const { email, password } = ctx.params;
+        const user = await User.findOne({ email });
+        return user
+          ? User.save({
+            email,
+            passwordHash: await genHash(password)
+          })
+          : Promise.reject(new Error('User already exists', ERROR_CODE_USER_EXIST));
+      }
     },
 
-    /**
-     * Welcome a username
-     *
-     * @param {String} name - User name
-     */
-    welcome: {
+    signInWithEmailPassword: {
       params: {
-        name: 'string'
+        email: 'string',
+        password: 'string'
       },
-      handler(ctx) {
-        // return `Welcome, ${ctx.params.name}`;
-        return this.saySomething();
+      handler: async ctx => {
+        const { email, password } = ctx.params;
+        const user = await User.findOne({ email });
+        return user
+          ? compareHash(password, user.passwordHash)
+          : Promise.reject(new Error('Cant find user with email', ERROR_CODE_CANT_FIND_USER));
       }
     }
   },
