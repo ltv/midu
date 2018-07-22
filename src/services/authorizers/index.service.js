@@ -1,10 +1,9 @@
 const DbService = require('moleculer-db');
 const MongooseAdapter = require('moleculer-db-adapter-mongoose');
-const mongoose = require('mongoose');
 
 const { genHash, compareHash } = require('./helpers');
 const { signToken, verifyToken } = require('./token');
-const { Post } = require('./models');
+const { Authorizers } = require('./models');
 
 // Mock USER
 const User = {
@@ -23,7 +22,7 @@ const ERROR_CODE_CANT_FIND_USER = 2;
 const GENERATE_TOKEN = 'GENERATE_TOKEN';
 const RESET = 'RESET';
 
-const { MONGO_DB_URL = 'mongodb://localhost/midu' } = process.env;
+const { MONGO_DB_URL = 'mongodb://localhost:27017/midu' } = process.env;
 
 module.exports = {
   name: 'authorizers',
@@ -33,7 +32,7 @@ module.exports = {
    */
   mixins: [DbService],
   adapter: new MongooseAdapter(MONGO_DB_URL),
-  model: Post,
+  model: Authorizers,
 
   /**
    * Service settings
@@ -49,6 +48,16 @@ module.exports = {
    * Actions
    */
   actions: {
+    test: {
+      async handler() {
+        const Authorizers = this.adapter.model;
+        return Authorizers.create({
+          email: 'test@example.com',
+          passwordHash: '$2a$10$RGVlrbI6C7UKcwfelt4PTuDMg.Sd4MGor4trmxkP7FIOSAWqgXXM6'
+        });
+      }
+    },
+
     signUpWithEmailPassword: {
       params: {
         email: 'string',

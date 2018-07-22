@@ -1,5 +1,5 @@
-const Post = require('./Post');
+const Authorizers = require('./Authorizers');
 
 module.exports = {
-  Post
+  Authorizers
 };
