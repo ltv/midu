@@ -11,12 +11,12 @@
     "format": "lint-staged",
     "dev": "moleculer-runner --repl --hot src/services",
     "start": "moleculer-runner",
-    "ci": "jest --watch",
-    "test": "jest",
+    "test": "jest --verbose",
+    "jest": "jest",
     "lint": "eslint src/services"
   },
   "jest": {
-    "rootDir": "./src",
+    "rootDir": "./",
     "testEnvironment": "node"
   },
   "lint-staged": {
