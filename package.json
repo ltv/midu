@@ -7,11 +7,28 @@
   "author": "Luc <luc@ltv.vn>, Anh <lehoanganh25991@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "moleculer-runner --repl --hot services",
+    "precommit": "lint-staged",
+    "format": "lint-staged",
+    "dev": "moleculer-runner --repl --hot src/services",
     "start": "moleculer-runner",
     "ci": "jest --watch",
     "test": "jest --coverage",
-    "lint": "eslint services"
+    "lint": "eslint src/services"
+  },
+  "jest": {
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "rootDir": "./services",
+    "roots": [
+      "../test"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --print-width 120",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "jest": "^23.4.1",
@@ -21,19 +38,9 @@
     "ts-jest": "^23.0.1"
   },
   "devDependencies": {
-    "moleculer-repl": "^0.5.0",
-    "nodemon": "^1.18.3",
-    "ts-node": "^7.0.0",
-    "tslint": "^5.11.0",
-    "typescript": "^2.9.2"
-  },
-  "jest": {
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "rootDir": "./services",
-    "roots": [
-      "../test"
-    ]
+    "moleculer-repl": "^0.5.0",    "husky": "^0.14.3",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.4.4"
   }
 }
 
