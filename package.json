@@ -29,9 +29,11 @@
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "jest": "^23.4.1",
+    "jsonwebtoken": "^8.3.0",
     "moleculer": "^0.13.1",
     "moleculer-decorators": "^1.0.14",
     "moleculer-web": "^0.8.0",
+    "moment": "^2.22.2",
     "ts-jest": "^23.0.1"
   },
   "devDependencies": {

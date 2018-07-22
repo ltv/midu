@@ -1,4 +1,7 @@
 const { genHash, compareHash } = require('./helpers');
+const { signToken, verifyToken } = require('./token');
+
+// Mock USER
 const User = {
   // findOne: () => Promise.resolve(null),
   findOne: () =>
@@ -9,8 +12,11 @@ const User = {
   save: info => Promise.resolve(info)
 };
 
-const ERROR_CODE_USER_EXIST = 1;
+const ERROR_CODE_USER_NOT_EXIST = 1;
 const ERROR_CODE_CANT_FIND_USER = 2;
+
+const GENERATE_TOKEN = 'GENERATE_TOKEN';
+const RESET = 'RESET';
 
 module.exports = {
   name: 'authorizers',
@@ -42,7 +48,7 @@ module.exports = {
             email,
             passwordHash: await genHash(password)
           })
-          : Promise.reject(new Error('User already exists', ERROR_CODE_USER_EXIST));
+          : Promise.reject(new Error('User already exists', ERROR_CODE_USER_NOT_EXIST));
       }
     },
 
@@ -57,6 +63,31 @@ module.exports = {
         return user
           ? compareHash(password, user.passwordHash)
           : Promise.reject(new Error('Cant find user with email', ERROR_CODE_CANT_FIND_USER));
+      }
+    },
+
+    resetPassword: {
+      params: {
+        email: 'string',
+        password: { type: 'string', optional: true },
+        action: 'string'
+      },
+      handler: async ({ params }) => {
+        const { email, action } = params;
+
+        if (action === GENERATE_TOKEN) return await signToken({ email });
+
+        if (action === RESET) {
+          const { password } = params;
+          const user = await User.findOne({ email });
+          return user
+            ? user.update({
+              passwordHash: await genHash(password)
+            })
+            : Promise.reject(new Error('User not found', ERROR_CODE_USER_NOT_EXIST));
+        }
+
+        return Promise.reject(new Error('Unknown action'));
       }
     }
   },
