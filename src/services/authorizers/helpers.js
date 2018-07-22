@@ -14,3 +14,7 @@ module.exports = {
   compareHash,
   genHash
 };
+
+// const password = 'Abcd1234';
+// genHash(password).then(console.log);
+// compareHash(password, '$2a$10$/lfxC07vWTS5dZqcVvKOxeT9bP0Jzj1oORo32XXCgRyt6r0iFPoZG').then(console.log);

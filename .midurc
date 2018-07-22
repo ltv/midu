@@ -1,1 +1,1 @@
-NODE_PATH=src
+export NODE_PATH=src

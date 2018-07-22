@@ -12,16 +12,12 @@
     "dev": "moleculer-runner --repl --hot src/services",
     "start": "moleculer-runner",
     "ci": "jest --watch",
-    "test": "jest --coverage",
+    "test": "jest",
     "lint": "eslint src/services"
   },
   "jest": {
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "rootDir": "./services",
-    "roots": [
-      "../test"
-    ]
+    "rootDir": "./src",
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
@@ -31,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "jest": "^23.4.1",
     "moleculer": "^0.13.1",
     "moleculer-decorators": "^1.0.14",
@@ -38,10 +35,9 @@
     "ts-jest": "^23.0.1"
   },
   "devDependencies": {
-    "moleculer-repl": "^0.5.0",    "husky": "^0.14.3",
+    "husky": "^0.14.3",
     "lint-staged": "^4.0.0",
+    "moleculer-repl": "^0.5.0",
     "prettier": "^1.4.4"
   }
 }
-
-

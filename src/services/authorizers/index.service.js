@@ -26,8 +26,8 @@ module.exports = {
         email: 'string',
         password: 'string'
       },
-      handler: async ctx => {
-        const { email, password } = ctx.params;
+      handler: async ({ params }) => {
+        const { email, password } = params;
         const user = await User.findOne({ email });
         return user
           ? User.save({
@@ -43,8 +43,8 @@ module.exports = {
         email: 'string',
         password: 'string'
       },
-      handler: async ctx => {
-        const { email, password } = ctx.params;
+      handler: async ({ params }) => {
+        const { email, password } = params;
         const user = await User.findOne({ email });
         return user
           ? compareHash(password, user.passwordHash)
