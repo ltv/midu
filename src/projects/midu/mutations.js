@@ -1,5 +1,5 @@
 const { CREATE_PROJECT, UPDATE_PROJECT } = require('./constants');
-const { Project } = require('./models');
+const { Project } = require('projects/models');
 
 const mutations = {
   [CREATE_PROJECT]: ctx => {

@@ -1,5 +1,5 @@
-const actions = require('./actions');
-const mutations = require('./mutations');
+const actions = require('./midu/actions');
+const mutations = require('./midu/mutations');
 const midu = require('core/midu');
 const { connect, closeConnection } = require('core/mongoose');
 
