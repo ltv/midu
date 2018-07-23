@@ -2780,13 +2780,6 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moleculer-db-adapter-mongoose@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/moleculer-db-adapter-mongoose/-/moleculer-db-adapter-mongoose-0.7.1.tgz#7f2c8eb1a380ab01e50b5aa1c0385861c4bece4d"
-  dependencies:
-    bluebird "3.5.1"
-    lodash "4.17.10"
-
 moleculer-db@^0.7.5:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/moleculer-db/-/moleculer-db-0.7.5.tgz#48c899f22b6b01e07bf1c343d79ef5eb652135f0"
@@ -2879,6 +2872,10 @@ mongodb@3.1.1:
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
+
+mongoose-timestamps-moment@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/mongoose-timestamps-moment/-/mongoose-timestamps-moment-1.0.0.tgz#c25a5b251337ae4f5ceeca17888899ab243a2370"
 
 mongoose@^5.2.4:
   version "5.2.4"
