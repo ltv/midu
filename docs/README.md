@@ -6,7 +6,10 @@ Quick test with Postman
 
 Collection: https://www.getpostman.com/collections/4b99da3b3558ea7dd60f
 
-## Stories 
+Documentation: https://documenter.getpostman.com/view/110008/RWMHM7xC
+
+## Stories
+
 - Can create new project
 - Able to assign people to project
 - Manage server information
