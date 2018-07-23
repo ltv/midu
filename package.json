@@ -8,16 +8,22 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
+    "prepare": "echo 'Please run: source .midurc'",
     "format": "lint-staged",
-    "dev": "moleculer-runner --repl --hot src/services",
-    "start": "moleculer-runner",
+    "dev": "moleculer-runner --repl --hot --env",
+    "start": "moleculer-runner --env --instances 4 src",
     "test": "jest --verbose",
-    "jest": "jest",
-    "lint": "eslint src/services"
+    "jest": "jest"
   },
   "jest": {
     "rootDir": "./",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "test-cases.js$",
+      "__tests__/manual/.*.js$",
+      "__tests__/.*.mock.js$",
+      "(/)?dist/.*.js$"
+    ]
   },
   "lint-staged": {
     "*.js": [
@@ -28,6 +34,7 @@
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
+    "dotenv": "^6.0.0",
     "jest": "^23.4.1",
     "jsonwebtoken": "^8.3.0",
     "moleculer": "^0.13.1",
