@@ -1,24 +1,23 @@
-const mongoose = require('mongoose');
+const m = require('mongoose');
 const joinUrl = require('url-join');
 const Promise = require('bluebird');
 
 const { MONGO_DB_URL, MONGO_DATABASE } = process.env;
 
-let connection = null;
-mongoose.Promise = Promise;
+m.Promise = Promise;
 const log = console.log;
 
-const connect = () => {
-  const url = joinUrl(MONGO_DB_URL, MONGO_DATABASE);
-  return connection || (connection = mongoose.connect(url));
-};
+const connect = () =>
+  m.connect(
+    joinUrl(MONGO_DB_URL, MONGO_DATABASE),
+    { useNewUrlParser: true }
+  );
 
 const closeConnection = () =>
-  connection &&
-  connection
+  m.connection
     .close()
-    .then(() => log('Mongo connection closed.'))
-    .catch(() => log('Fail to close mongo connection.'));
+    .then(() => log('[close connection] Success'))
+    .catch(() => log('[close connection] Fail'));
 
 module.exports = {
   connect,

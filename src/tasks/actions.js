@@ -1,5 +1,4 @@
-const CREATE_PROJECT = 'CREATE_PROJECT';
-const UPDATE_PROJECT = 'UPDATE_PROJECT';
+const { CREATE_PROJECT, UPDATE_PROJECT } = require('./constants');
 
 const service = {
   name: 'TEST_MIDU'
@@ -22,17 +21,4 @@ const actions = {
   }
 };
 
-const mutations = {
-  [CREATE_PROJECT]: (ctx, service) => {
-    return { ctx, service };
-  },
-  [UPDATE_PROJECT]: (ctx, service) => {
-    return { ctx, service };
-  }
-};
-
-module.exports = {
-  service,
-  actions,
-  mutations
-};
+module.exports = actions;

@@ -1,2 +1,4 @@
 export NODE_PATH=src
 export SERVICEDIR=src
+export MONGO_DB_URL=mongodb://localhost:27017
+export MONGO_DATABASE=midu

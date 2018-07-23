@@ -10,7 +10,7 @@ const midu = ({ service = {}, actions = {}, mutations = {} }) => {
         params,
         handler(ctx) {
           const service = this;
-          return mutation(params, ctx, service);
+          return mutation(ctx, service);
         }
       };
       return carry;

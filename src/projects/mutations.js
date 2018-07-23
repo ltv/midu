@@ -2,11 +2,11 @@ const { CREATE_PROJECT, UPDATE_PROJECT } = require('./constants');
 const { Project } = require('./models');
 
 const mutations = {
-  [CREATE_PROJECT]: (params, ctx, service) => {
-    return '[CREATE]' + JSON.stringify(params);
+  [CREATE_PROJECT]: (ctx, service) => {
+    return '[CREATE]';
   },
-  [UPDATE_PROJECT]: (params, ctx, service) => {
-    return '[UPDATE]' + JSON.stringify(params);
+  [UPDATE_PROJECT]: (ctx, service) => {
+    return '[UPDATE]';
   }
 };
 
