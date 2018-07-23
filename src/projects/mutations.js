@@ -1,4 +1,5 @@
 const { CREATE_PROJECT, UPDATE_PROJECT } = require('./constants');
+const { Project } = require('./models');
 
 const mutations = {
   [CREATE_PROJECT]: (params, ctx, service) => {
