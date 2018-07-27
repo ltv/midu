@@ -3,9 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from 'store';
-
-const HW = () => <div>Hello World</div>
-
+import Login from 'pages/Login';
 
 class App extends Component {
   render() {
@@ -13,7 +11,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={HW} />
+            <Route exact path="/" component={Login} />
           </Switch>
         </Router>
       </Provider>

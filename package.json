@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
+    "format": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
