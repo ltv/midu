@@ -1,0 +1,4 @@
+export default {
+  STORE_HISTORY: '@ROUTER/STORE_HISTORY',
+  GO_TO_PATH: '@ROUTER/GO_TO_PATH'
+};

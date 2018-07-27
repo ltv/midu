@@ -1,0 +1,5 @@
+export default {
+  UPDATE_FORM: '@LOGIN/UPDATE_FORM',
+  SIGN_IN: '@LOGIN/SIGN_IN',
+  SIGN_OUT: '@LOGIN/SIGN_OUT'
+};
