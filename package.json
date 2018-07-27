@@ -7,15 +7,15 @@
   "author": "Luc <luc@ltv.vn>, Anh <lehoanganh25991@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node -r ts-node/register node_modules/moleculer/bin/moleculer-runner --repl --hot src/services --mask **/*.service.ts",
-    "start": "moleculer-runner"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "jest": "^23.4.1",
-    "moleculer": "^0.13.1",
-    "moleculer-decorators": "^1.0.14",
-    "moleculer-web": "^0.8.0",
-    "ts-jest": "^23.0.1"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
   },
   "devDependencies": {
     "moleculer-repl": "^0.5.0",
