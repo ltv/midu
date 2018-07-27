@@ -7,10 +7,18 @@
   "author": "Luc <luc@ltv.vn>, Anh <lehoanganh25991@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --trailing-comma=all --print-width 120",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "react": "^16.4.1",
@@ -23,8 +31,11 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
     "moleculer-repl": "^0.5.0",
     "nodemon": "^1.18.3",
+    "prettier": "^1.13.7",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2"
