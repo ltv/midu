@@ -3,7 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from 'store';
-import Login from 'pages/Login';
+import indexRoutes from './routes/index.jsx';
 
 class App extends Component {
   render() {
@@ -11,7 +11,9 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Login} />
+            {indexRoutes.map((prop, key) => {
+              return <Route path={prop.path} component={prop.component} key={key} />;
+            })}
           </Switch>
         </Router>
       </Provider>
